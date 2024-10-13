@@ -144,7 +144,8 @@ async def get_list_card_event() -> list:
     """
     logging.info(f'get_list_card_event')
     async with async_session() as session:
-        places = await session.scalars(select(Place).where(Place.category == "🎧Мероприятия недели").order_by(Place.position))
+        places = await session.scalars(select(Place).where(Place.category == "🎧Мероприятия недели").
+                                       order_by(Place.position))
         set_list = []
         for place in places:
             set_list.append({"id_place": place.id,

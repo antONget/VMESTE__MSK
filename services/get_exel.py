@@ -14,4 +14,3 @@ async def list_users_to_exel():
     df_stat = pd.DataFrame(dict_stat)
     with pd.ExcelWriter(path='./list_user.xlsx', engine='xlsxwriter') as writer:
         df_stat.to_excel(writer, sheet_name=f'Список пользователей', index=False)
-

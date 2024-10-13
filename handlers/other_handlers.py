@@ -55,3 +55,4 @@ async def all_message(message: Message) -> None:
 
     else:
         await message.answer('Я вас не понимаю!')
+

@@ -136,3 +136,4 @@ async def process_yes_delete_title_card(callback: CallbackQuery) -> None:
     await callback.message.edit_text(text='Удаление отменено',
                                      reply_markup=None)
     await callback.answer()
+

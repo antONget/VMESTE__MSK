@@ -73,10 +73,9 @@ def keyboard_get_more_event():
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[button_1]], )
     return keyboard
 
+
 def keyboard_full_text(yandex, instagram):
     logging.info("keyboard_full_text")
-    button_1 = ''
-    button_2 = ''
     if validators.url(yandex):
         button_1 = InlineKeyboardButton(text='Яндекс Карты',  url=f'{yandex}')
     else:

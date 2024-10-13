@@ -384,3 +384,4 @@ async def process_details(callback: CallbackQuery, state: FSMContext) -> None:
                                          reply_markup=keyboard_full_text_1(data["yandex_card"]),
                                          parse_mode='html')
     await callback.answer()
+

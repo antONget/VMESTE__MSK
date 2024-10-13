@@ -262,3 +262,4 @@ async def process_update_card(message: Message, state: FSMContext) -> None:
                                     set_attribute=message.text,
                                     id_card=int(data['id_card']))
         await message.answer(text='Поле обновлено')
+

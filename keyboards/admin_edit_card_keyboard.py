@@ -82,7 +82,6 @@ def keyboard_full_text(yandex, instagram):
 
 def keyboard_full_text_1(yandex):
     logging.info("keyboard_full_text_1")
-    button_1 = ''
     if validators.url(yandex):
         button_1 = InlineKeyboardButton(text='Яндекс Карты',  url=f'{yandex}')
     else:

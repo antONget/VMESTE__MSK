@@ -61,3 +61,4 @@ async def process_get_stat(message: Message) -> None:
                              parse_mode='html')
     list_id_username = await rq.get_list_users()
     await message.answer(text=f'Количество уникальных пользователей: {len(list_id_username)}')
+

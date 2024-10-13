@@ -274,3 +274,4 @@ async def process_question(message: Message) -> None:
     logging.info(f'process_question: {message.chat.id}')
     await message.answer(text='Если у вас возникли вопросы по работе бота или у вас есть предложения,'
                               ' то можете написать @legeau')
+
