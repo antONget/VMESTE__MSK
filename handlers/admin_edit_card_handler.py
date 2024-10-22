@@ -111,16 +111,17 @@ async def process_select_category_card(callback: CallbackQuery, state: FSMContex
     :param state:
     :return:
     """
-    logging.info(f'process_select_category_card: {callback.message.chat.id}')
+    logging.info(f'process_select_category_card: {callback.message.chat.id} subcategory={callback.data.split(":")[1]}')
     await state.update_data(subcategory=callback.data.split(':')[1])
     data = await state.get_data()
     list_card: list[Place] = await rq.get_list_card(data['category'],
                                                     data['subcategory'])
     list_title_card = []
     list_id_card = []
-    for card in list_card:
-        list_title_card.append(card.title)
-        list_id_card.append(card.id)
+    if list_card:
+        for card in list_card:
+            list_title_card.append(card["title"])
+            list_id_card.append(card["id_place"])
     await callback.message.edit_text(text='Выберите заведение для редактирования',
                                      reply_markup=create_keyboard_list(list_name_button=list_title_card,
                                                                        str_callback='edittitle_card',
