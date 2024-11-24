@@ -35,8 +35,12 @@ async def process_start_command_user(message: Message, state: FSMContext) -> Non
     """
     logging.info(f'process_start_command_user: {message.chat.id}')
     await state.set_state(state=None)
+    if message.from_user.username:
+        username = message.from_user.username
+    else:
+        username = "username"
     await rq.add_user(tg_id=message.chat.id,
-                      data={"tg_id": message.chat.id, "username": message.from_user.username})
+                      data={"tg_id": message.chat.id, "username": username})
     await message.answer(text=f'Привет, друг/подружка!\n\n'
                               f'Это дружеское медиа по городам Вместе, созданное командой подружек!\n\n'
                               f'Что ты найдешь здесь?\n'
